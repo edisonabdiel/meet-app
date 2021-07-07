@@ -39,18 +39,22 @@ module.exports.getAuthURL = async () => {
     }),
   };
 };
-// generates 
+// generates access token
 module.exports.getAccessToken = async (event) => {
+  /// The values used to instantiate the OAuthClient are at the top of the file
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
     client_secret,
     redirect_uris[0]
   );
-
-  const code = decodeURIComponent(`${event.pathParamenters.code}`);
-
+  // Decode authorization code extracted from the URL query
+  const code = decodeURIComponent(`${event.pathParameters.code}`);
   return new Promise((resolve, reject) => {
-    oAuth2Client(code, (err, token) => {
+    /**
+     *  Exchange authorization code for access token with a "callback" after the exchange,
+     *  The callback in this case is an arrow function with the results as parameters: "err" and "token."
+     */
+    oAuth2Client.getToken(code, (err, token) => {
       if (err) {
         return reject(err);
       }
@@ -58,27 +62,25 @@ module.exports.getAccessToken = async (event) => {
     });
   })
     .then((token) => {
+      // Respond with OAuth token 
       return {
         statusCode: 200,
         headers: {
           "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET"
         },
         body: JSON.stringify(token),
       };
     })
     .catch((err) => {
+      // Handle error
       console.error(err);
       return {
         statusCode: 500,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify(err)
-      }
+        body: JSON.stringify(err),
+      };
     });
 };
-
+// gets the calendar events
 module.exports.getCalendarEvents = async (event) => {
 
   const oAuth2Client = new google.auth.OAuth2(
@@ -125,7 +127,7 @@ module.exports.getCalendarEvents = async (event) => {
         headers: {
           'Access-Control-Allow-Origin': '*',
         },
-        body: JSON.stringify(error),
+        body: JSON.stringify(err),
       };
     });
 }
