@@ -24,6 +24,10 @@ p {
   display: block;
 }
 
+.event-number-input > input:hover{
+  background-color:#bcdcdb;
+}
+
 input[type="text"],
 input[type="number"] {
   padding: 8px 6px 8px 10px;
