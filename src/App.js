@@ -16,7 +16,7 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 32,
-    tokenCheck: false,
+    currentLocation: 'all'
   }
 
   componentDidMount() {
@@ -35,46 +35,36 @@ class App extends Component {
     this.mounted = false;
   }
 
-  updateEvents = (location, eventCount) => {
-    console.log('update events token valid: ', this.state.tokenCheck)
+  updateEvents = (location, countEvent = this.state.numberOfEvents) => {
+  
     const { currentLocation, numberOfEvents } = this.state;
     if (location) {
-      getEvents().then((response) => {
-        const locationEvents =
-          location === "all"
-            ? response.events
-            : response.events.filter((event) => event.location === location);
-        const events = locationEvents.slice(0, numberOfEvents);
-        return this.setState({
-          events: events,
-          currentLocation: location,
-          locations: response.locations,
+      getEvents().then((events) => {
+        const locations = location === "all"
+            ? events
+            : events.filter((event) => event.location === location);
+        let slicedEvents = locations.slice(0, countEvent);
+        this.setState({
+          events: slicedEvents,
+          currentLocation: location
         });
       });
-    } else {
-      getEvents().then((response) => {
-        const locationEvents =
-          currentLocation === "all"
-            ? response.events
-            : response.events.filter(
-              (event) => event.location === currentLocation
-            );
-        const events = locationEvents.slice(0, eventCount);
-        return this.setState({
-          events: events,
-          numberOfEvents: eventCount,
-          locations: response.locations,
-        });
-      });
-    }
+    } 
   };
+
+  updateNumberOfEvents = (numberOfEvents) => {
+    this.setState({
+      numberOfEvents: numberOfEvents
+    })
+    this.updateEvents(this.state.currentLocation, numberOfEvents);
+  }
 
   render() {
     return (
       <div className="App">
         <h1 className="app-name">Meet App</h1>
-        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} numberOfEvents={this.numberOfEvents} />
-        <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={this.state.numberOfEvents} />
+        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} numberOfEvents={this.state.numberOfEvents} />
+        <NumberOfEvents updateNumberOfEvents={this.updateNumberOfEvents} numberOfEvents={this.state.numberOfEvents} />
         <EventList events={this.state.events} /> 
       </div>
     );

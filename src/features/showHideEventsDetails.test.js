@@ -39,7 +39,7 @@ defineFeature(feature, test => {
     });
 
     then('the user should see the details of this specific event', () => {
-      expect(EventWrapper.find(".event-details")).toHaveLength(1);
+      expect(EventWrapper.find(".description")).toHaveLength(1);
     });
   });
 
@@ -49,7 +49,7 @@ defineFeature(feature, test => {
       EventListWrapper = mount(<EventList events={mockData} />);
       EventWrapper = mount(<Event event={mockData[0]} />);
       EventWrapper.find(".details-btn").simulate("click");
-      EventWrapper.find(".event-details");
+      EventWrapper.find(".description");
     });
 
     when('the user clicks on the collapse/show less button', () => {
@@ -57,7 +57,7 @@ defineFeature(feature, test => {
     });
 
     then('the user should no longer see the event’s details', () => {
-      expect(EventWrapper.find(".event-details")).toHaveLength(0);
+      expect(EventWrapper.find(".description")).toHaveLength(0);
     });
   });
 

@@ -40,7 +40,7 @@ class Event extends Component {
           <p><b>Creator:</b> {event.creator.email}</p>
           <p><b>Start Time:</b> {event.start.dateTime}</p>
           <p><b>Location:</b> {event.location}</p>
-          <p className="description">{this.desc(event)}</p>
+          {this.state.showMore && <p className="description">{this.desc(event)}</p>}
           <button className="details-btn" onClick={() => {this.showMore(event)}}>{this.showText()}</button>
         </div>
       </>

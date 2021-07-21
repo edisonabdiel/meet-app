@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { ErrorAlert } from './Alert';
 
 class NumberOfEvents extends Component {
+
   state = {
-    numberOfEvents: 10,
+    numberOfEvents: 32,
     errorText: '',
   }
 
   handleInputChanged = (event) => {
     const value = event.target.value;
-
-    this.props.updateEvents(null, value);
+console.log(value)
     this.setState({ numberOfEvents: value });
 
     if (value < 1) {
@@ -28,7 +28,7 @@ class NumberOfEvents extends Component {
         numberOfEvents: value,
         errorText: '',
       });
-      this.props.updateEvents('', value);
+      this.props.updateNumberOfEvents(value);
     }
   };
 
