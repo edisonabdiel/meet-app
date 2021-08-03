@@ -1,67 +1,89 @@
-.WelcomeScreen {
+h1 {
+    color: #FF758C;
+  }
+  h2,h3,h4,h5,h6 {
+    color: #434343;
+  }
+  a {
+    text-align: center;
+    display: inline-block;
+    color: #F74568;
+    } 
+  p {
+    text-align: justify;
+    display: block;
+  }
+  .WelcomeScreen {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
-    background: white;
+    background-color: #fff;
     }
-    
     .login-button {
-    color: #494949;
+    color: #405074;
     text-transform: uppercase;
     text-decoration: none;
-    background: #ffffff;
-    border: 4px solid #494949;
+    background: #fff;
+    border: 4px solid #FA6985;
     display: inline-block;
     transition: all 0.4s ease 0s;
     min-width: 10rem;
-    margin: 1rem;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 30px;
     }
-
     .google-btn {
     width: 184px;
     height: 42px;
     margin: 1rem;
-    background-color: #4285f4;
+    background-color: transparent;
     border-radius: 2px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
     }
-
     .google-btn:hover {
-    box-shadow: 0 0 6px #4285f4;
+    box-shadow: 0 0 6px #fff;
     }
-
     .google-btn:active {
-    background: #1669f2;
-    }
-
-    .google-icon-wrapper {
-    position: absolute;
-    margin-top: 1px;
-    margin-left: 1px;
-    width: 40px;
-    height: 40px;
-    border-radius: 2px;
-    background-color: #fff;
-    }
-
-    .google-icon {
-    position: absolute;
-    margin-top: 11px;
-    margin-left: -8px;
-    width: 18px;
-    height: 18px;
-    }
-
-    .btn-text {
-    float: right;
-    color: #fff;
-    font-size: 14px;
-    letter-spacing: 0.2px;
-    font-family: "Roboto";
-    background-color: #4285f4;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    margin-left: 2rem;
-    }
+      background: #fff;
+      }
+      .google-icon-wrapper {
+      position: absolute;
+      margin-top: 1px;
+      margin-left: 1px;
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      background-color: #fff;
+       }
+      .google-icon {
+      position: absolute;
+      margin-top: 11px;
+      margin-left: -8px;
+      width: 18px;
+      height: 18px;
+      }
+      .btn-text {
+      color: #fff;
+      font-size: 14px;
+      font-family: "Roboto";
+      background: #405074;
+      width: 80%;
+      height: 100%;
+      text-align: center;
+      margin: 0px;
+      border-radius: 6px;
+      }
+  
+      .details-btn {
+      color: #405074;
+      text-decoration: none;
+      background: #fff;
+      border: 2px solid #FA6985;
+      transition: all 0.4s ease 0s;
+      min-width: 6rem;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      display: block;
+      }
