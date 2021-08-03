@@ -83,7 +83,7 @@ class App extends Component {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
     return (
       <div className="App">
-        <h1 className="app-name">Meet App</h1>
+        <h1 className="app-name"> Coding MeetApp</h1>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} numberOfEvents={this.state.numberOfEvents} />
         <NumberOfEvents updateNumberOfEvents={this.updateNumberOfEvents} numberOfEvents={this.state.numberOfEvents} />
         <h4>Events in each city</h4>

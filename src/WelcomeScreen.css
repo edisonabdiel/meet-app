@@ -1,18 +1,4 @@
-h1 {
-    color: #FF758C;
-  }
-  h2,h3,h4,h5,h6 {
-    color: #434343;
-  }
-  a {
-    text-align: center;
-    display: inline-block;
-    color: #F74568;
-    } 
-  p {
-    text-align: justify;
-    display: block;
-  }
+
   .WelcomeScreen {
     position: fixed;
     width: 100%;
