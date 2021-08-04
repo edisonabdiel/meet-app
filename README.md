@@ -2,8 +2,6 @@
 
 <img width="1374" alt="Screenshot 2021-08-03 at 18 46 31" src="https://user-images.githubusercontent.com/43752457/128054554-ee1e1e4b-cd6a-4ca7-9588-3f137b4b9545.png">
 
-## About The Project
-
 ### Objective:
 
 - Build a serverless, progressive web application (PWA) with React using a test-driven development (TDD) technique. The application uses the Google Calendar API to fetch upcoming events.
